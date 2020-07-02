@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
 public class CoffeeMachine {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Initial resources available
-    private int mlWater = 400;
-    private int mlMilk = 540;
-    private int gramsCoffeeBeans = 120;
-    private int numDisposableCups = 9;
-    private double moneyAmount = 550;
+    private static int mlWater = 400;
+    private static int mlMilk = 540;
+    private static int gramsCoffeeBeans = 120;
+    private static int numDisposableCups = 9;
+    private static double moneyAmount = 550;
 
     // Execution point of coffee machine
     public static void start() {
@@ -35,6 +35,41 @@ public class CoffeeMachine {
         do {
             System.out.println("Write action (buy, fill, withdraw, remaining, help, exit):");
             action = scanner.next().toLowerCase();
+            System.out.println();
+
+            process(action);
         } while (!action.equals(exitKeyword));
+    }
+
+    // Interpret the user's specified action
+    private static void process(String action) {
+        switch (action) {
+//            case "buy":
+//                buy();
+//                break;
+//            case "fill":
+//                fill();
+//                break;
+//            case "withdraw":
+//                withdraw();
+//                break;
+            case "remaining":
+                printRemaining();
+                break;
+//            case "help":
+//                help();
+//                break;
+        }
+    }
+
+    // Print the remaining resources in the machine
+    private static void printRemaining() {
+        System.out.println("Here are my available resources:");
+        System.out.println(mlWater + " ml of water");
+        System.out.println(mlMilk + " ml of milk");
+        System.out.println(gramsCoffeeBeans + " grams of coffee beans");
+        System.out.println(numDisposableCups + " disposable cup(s)");
+        System.out.println("$" + String.format("%.2f", moneyAmount));
+        System.out.println();
     }
 }
