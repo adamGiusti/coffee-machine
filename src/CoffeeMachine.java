@@ -50,9 +50,9 @@ public class CoffeeMachine {
             case "buy":
                 initiateBuy();
                 break;
-//            case "fill":
-//                fill();
-//                break;
+            case "fill":
+                fill();
+                break;
 //            case "withdraw":
 //                withdraw();
 //                break;
@@ -132,6 +132,23 @@ public class CoffeeMachine {
         if (!enoughDisposableCups) {
             System.out.println("\t1 disposable cup");
         }
+    }
+
+    // Restock the machine with a certain amount of each resource
+    private static void fill() {
+        System.out.println("Write how many ml of water you want to add:");
+        mlWater += scanner.nextInt();
+
+        System.out.println("Write how many ml of milk you want to add:");
+        mlMilk += scanner.nextInt();
+
+        System.out.println("Write how many grams of coffee beans you want to add:");
+        gramsCoffeeBeans += scanner.nextInt();
+
+        System.out.println("Write how many disposable cups you want to add:");
+        numDisposableCups += scanner.nextInt();
+
+        System.out.println();
     }
 
     // Print the remaining resources in the machine
