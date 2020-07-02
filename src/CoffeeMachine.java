@@ -25,6 +25,8 @@ public class CoffeeMachine {
         System.out.println();
         System.out.println("Go ahead and interact with me by writing one of the available actions below:");
         System.out.println();
+
+        printRemaining();
     }
 
     // Repeatedly request an action from the user until they exit the interaction
@@ -56,9 +58,9 @@ public class CoffeeMachine {
             case "remaining":
                 printRemaining();
                 break;
-//            case "help":
-//                help();
-//                break;
+            case "help":
+                help();
+                break;
         }
     }
 
@@ -70,6 +72,17 @@ public class CoffeeMachine {
         System.out.println(gramsCoffeeBeans + " grams of coffee beans");
         System.out.println(numDisposableCups + " disposable cup(s)");
         System.out.println("$" + String.format("%.2f", moneyAmount));
+        System.out.println();
+    }
+
+    // Describe the purpose and use case of each possible action
+    private static void help() {
+        System.out.println("Here's a list of what each possible action means:");
+        System.out.println("buy: Choose between three different types of coffee to buy (cost varies). As long as I have the necessary items, I'll make it for you!");
+        System.out.println("fill: Add amounts of resources to me to fill me back up.");
+        System.out.println("withdraw: Collect some of the money I've earned.");
+        System.out.println("remaining: See how many of the available items I have left.");
+        System.out.println("exit: Stop interacting with me and exit the program.");
         System.out.println();
     }
 }
