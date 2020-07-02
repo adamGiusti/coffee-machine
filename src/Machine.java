@@ -5,9 +5,9 @@ public class Machine {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     // Machine's resources with initial amounts
-    public static int mlWater = 500;
+    public static int mlWater = 800;
     public static int mlMilk = 400;
-    public static int gramsCoffeeBeans = 120;
+    public static int gramsCoffeeBeans = 100;
     public static int numDisposableCups = 10;
     public static double moneyAmount = 75;
 
