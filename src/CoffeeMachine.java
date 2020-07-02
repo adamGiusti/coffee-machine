@@ -53,9 +53,9 @@ public class CoffeeMachine {
             case "fill":
                 fill();
                 break;
-//            case "withdraw":
-//                withdraw();
-//                break;
+            case "withdraw":
+                withdraw();
+                break;
             case "remaining":
                 printRemaining();
                 break;
@@ -151,6 +151,23 @@ public class CoffeeMachine {
         System.out.println();
     }
 
+    // Take away a given amount of money from the machine
+    private static void withdraw() {
+        double moneyAmountWithdrawn;
+
+        System.out.println("How much money do you want to collect?:");
+        moneyAmountWithdrawn = scanner.nextDouble();
+
+        if (moneyAmount >= moneyAmountWithdrawn) {
+            moneyAmount -= moneyAmountWithdrawn;
+
+            System.out.println("$" + moneyFormat(moneyAmountWithdrawn) + " has been withdrawn.");
+            System.out.println("I now have $" + moneyFormat(moneyAmount) + " left.");
+        }
+
+        System.out.println();
+    }
+
     // Print the remaining resources in the machine
     private static void printRemaining() {
         System.out.println("Here are my current resources:");
@@ -158,8 +175,12 @@ public class CoffeeMachine {
         System.out.println("\t" + mlMilk + " ml of milk");
         System.out.println("\t" + gramsCoffeeBeans + " grams of coffee beans");
         System.out.println("\t" + numDisposableCups + " disposable cup(s)");
-        System.out.println("\t$" + String.format("%.2f", moneyAmount));
+        System.out.println("\t$" + moneyFormat(moneyAmount));
         System.out.println();
+    }
+
+    private static String moneyFormat(double moneyAmount) {
+        return String.format("%.2f", moneyAmount);
     }
 
     // Describe the purpose and use case of each possible action
