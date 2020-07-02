@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 public class CoffeeMachine {
+    private static Scanner scanner = new Scanner(System.in);
+
     // Initial resources available
     private int mlWater = 400;
     private int mlMilk = 540;
@@ -9,6 +13,7 @@ public class CoffeeMachine {
     // Execution point of coffee machine
     public static void start() {
         greet();
+        interact();
     }
 
     // Introduce the machine to the user
@@ -20,5 +25,16 @@ public class CoffeeMachine {
         System.out.println();
         System.out.println("Go ahead and interact with me by writing one of the available actions below:");
         System.out.println();
+    }
+
+    // Repeatedly request an action from the user until they exit the interaction
+    private static void interact() {
+        String action;
+        String exitKeyword = "exit";
+
+        do {
+            System.out.println("Write action (buy, fill, withdraw, remaining, help, exit):");
+            action = scanner.next().toLowerCase();
+        } while (!action.equals(exitKeyword));
     }
 }
