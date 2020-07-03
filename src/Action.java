@@ -4,23 +4,18 @@ class Action {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    // Print the remaining resources in the machine
-    static void printRemaining() {
-        System.out.println("Here are my current resources:");
-        System.out.println("\t" + Machine.mlWater + " ml of water");
-        System.out.println("\t" + Machine.mlMilk + " ml of milk");
-        System.out.println("\t" + Machine.gramsCoffeeBeans + " grams of coffee beans");
-        System.out.println("\t" + Machine.numDisposableCups + " disposable cup(s)");
-        System.out.println("\t$" + moneyFormat(Machine.moneyAmount));
-    }
-
-    // Find out what the user wants to buy and execute the transaction
-    static void buy() {
+    // Find out what the user initially wants to buy
+    static void initiateBuy() {
         String choice;
 
-        System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
+        System.out.println("What do you want to buy (1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu)?");
         choice = SCANNER.next().toLowerCase();
 
+        buy(choice);
+    }
+
+    // Execute the transaction based on the user's choice
+    private static void buy(String choice) {
         if (choice.equals("back")) {
             return;
         }
@@ -54,6 +49,8 @@ class Action {
             Machine.mlMilk -= coffee.ML_MILK;
             Machine.gramsCoffeeBeans -= coffee.GRAMS_COFFEE_BEANS;
             Machine.moneyAmount += coffee.COST;
+
+            promptNextBuy(true);
         } else {
             printUnavailableResources(coffee, enoughWater, enoughMilk, enoughCoffeeBeans, enoughDisposableCups);
         }
@@ -77,6 +74,23 @@ class Action {
         }
         if (!enoughDisposableCups) {
             System.out.println("\t1 disposable cup");
+        }
+
+        promptNextBuy(false);
+    }
+
+    // Find out what the user wants to buy after the previous transaction
+    private static void promptNextBuy(boolean previousTransactionExecuted) {
+        if (previousTransactionExecuted) {
+            String nextChoice;
+
+            System.out.println("Enter anything else you'd like to buy (back - exit this action):");
+            nextChoice = SCANNER.next().toLowerCase();
+
+            buy(nextChoice);
+        } else {
+            System.out.println("Try choosing another menu option, or back out and refill me!");
+            initiateBuy();
         }
     }
 
@@ -132,6 +146,16 @@ class Action {
         System.out.println("\twithdraw: Collect some of the money I've earned.");
         System.out.println("\tremaining: See how many of the available items I have left.");
         System.out.println("\texit: Stop interacting with me and exit the program.");
+    }
+
+    // Print the remaining resources in the machine
+    static void printRemaining() {
+        System.out.println("Here are my current resources:");
+        System.out.println("\t" + Machine.mlWater + " ml of water");
+        System.out.println("\t" + Machine.mlMilk + " ml of milk");
+        System.out.println("\t" + Machine.gramsCoffeeBeans + " grams of coffee beans");
+        System.out.println("\t" + Machine.numDisposableCups + " disposable cup(s)");
+        System.out.println("\t$" + moneyFormat(Machine.moneyAmount));
     }
 
     // Return double value as a string with two decimal places

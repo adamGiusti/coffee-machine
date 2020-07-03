@@ -53,7 +53,7 @@ class Machine {
     private static void process(String action) {
         switch (action) {
             case "buy":
-                Action.buy();
+                Action.initiateBuy();
                 break;
             case "fill":
                 Action.fill();
