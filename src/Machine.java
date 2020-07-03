@@ -23,9 +23,10 @@ class Machine {
         System.out.println();
         System.out.println("I work with typical products: water, milk, coffee beans, and plastic cups; if I run out of something, I'll notify you.");
         System.out.println("You can get three types of coffee: espresso, cappuccino, and latte.");
-        System.out.println();
 
+        System.out.println();
         Action.printRemaining();
+        System.out.println();
 
         System.out.println("Go ahead and interact with me by writing one of the available actions below:");
         System.out.println();
@@ -35,13 +36,17 @@ class Machine {
     private static void interact() {
         String action;
 
-        do {
+        while (true) {
             System.out.println("Write action (buy, fill, withdraw, remaining, help, exit):");
             action = SCANNER.next().toLowerCase();
-            System.out.println();
 
+            if (action.equals("exit")) {
+                break;
+            }
+
+            System.out.println();
             process(action);
-        } while (!action.equals("exit"));
+        }
     }
 
     // Interpret the user's chosen action

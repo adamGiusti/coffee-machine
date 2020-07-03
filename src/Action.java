@@ -93,13 +93,17 @@ class Action {
 
         System.out.println("Write how many disposable cups you want to add:");
         Machine.numDisposableCups += SCANNER.nextInt();
+
+        System.out.println("Update complete!");
+        System.out.println();
+        printRemaining();
     }
 
     // Take away a given amount of money from the machine
     static void withdraw() {
         double moneyAmountWithdrawn;
 
-        System.out.println("How much money do you want to collect?:");
+        System.out.println("How much money do you want to collect?");
         moneyAmountWithdrawn = SCANNER.nextDouble();
 
         if (Machine.moneyAmount >= moneyAmountWithdrawn) {
@@ -112,7 +116,7 @@ class Action {
 
     // Describe the purpose and use case of each possible action
     static void help() {
-        System.out.println("Here's a list of what each possible action means:");
+        System.out.println("Here's a list of all the possible actions:");
         System.out.println("\tbuy: Choose between three different types of coffee to buy (cost varies). As long as I have the necessary items, I'll make it for you!");
         System.out.println("\tfill: Add amounts of resources to me to fill me back up.");
         System.out.println("\twithdraw: Collect some of the money I've earned.");
