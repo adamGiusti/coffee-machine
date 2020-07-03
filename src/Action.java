@@ -115,6 +115,11 @@ class Action {
 
     // Take away a given amount of money from the machine
     static void withdraw() {
+        if (Machine.moneyAmount == 0) {
+            System.out.println("Sorry, but I'm all out of money!");
+            return;
+        }
+
         String response;
         double moneyAmountWithdrawn;
 
