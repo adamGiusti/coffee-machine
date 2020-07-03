@@ -143,6 +143,16 @@ class Action {
         }
     }
 
+    // Print the remaining resources in the machine
+    static void printRemaining() {
+        System.out.println("Here are my current resources:");
+        System.out.println("\t" + Machine.mlWater + " ml of water");
+        System.out.println("\t" + Machine.mlMilk + " ml of milk");
+        System.out.println("\t" + Machine.gramsCoffeeBeans + " grams of coffee beans");
+        System.out.println("\t" + Machine.numDisposableCups + " disposable cup(s)");
+        System.out.println("\t$" + moneyFormat(Machine.moneyAmount));
+    }
+
     // Describe the purpose and use case of each possible action
     static void help() {
         System.out.println("Here's a list of all the possible actions:");
@@ -153,14 +163,9 @@ class Action {
         System.out.println("\texit: Stop interacting with me and exit the program.");
     }
 
-    // Print the remaining resources in the machine
-    static void printRemaining() {
-        System.out.println("Here are my current resources:");
-        System.out.println("\t" + Machine.mlWater + " ml of water");
-        System.out.println("\t" + Machine.mlMilk + " ml of milk");
-        System.out.println("\t" + Machine.gramsCoffeeBeans + " grams of coffee beans");
-        System.out.println("\t" + Machine.numDisposableCups + " disposable cup(s)");
-        System.out.println("\t$" + moneyFormat(Machine.moneyAmount));
+    // Thank the user before exiting the program
+    static void exit() {
+        System.out.println("Thanks for interacting with me. Goodbye! :)");
     }
 
     // Return double value as a string with two decimal places

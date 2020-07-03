@@ -39,12 +39,13 @@ class Machine {
         while (true) {
             System.out.println("Write action (buy, fill, withdraw, remaining, help, exit):");
             action = SCANNER.next().toLowerCase();
+            System.out.println();
 
             if (action.equals("exit")) {
+                Action.exit();
                 break;
             }
 
-            System.out.println();
             process(action);
         }
     }
