@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class Action {
+class Action {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
     // Print the remaining resources in the machine
-    public static void printRemaining() {
+    static void printRemaining() {
         System.out.println("Here are my current resources:");
         System.out.println("\t" + Machine.mlWater + " ml of water");
         System.out.println("\t" + Machine.mlMilk + " ml of milk");
@@ -15,7 +15,7 @@ public class Action {
     }
 
     // Find out what the user wants to buy and execute the transaction
-    public static void buy() {
+    static void buy() {
         String choice;
 
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
@@ -81,7 +81,7 @@ public class Action {
     }
 
     // Restock the machine with a certain amount of each resource
-    public static void fill() {
+    static void fill() {
         System.out.println("Write how many ml of water you want to add:");
         Machine.mlWater += SCANNER.nextInt();
 
@@ -96,7 +96,7 @@ public class Action {
     }
 
     // Take away a given amount of money from the machine
-    public static void withdraw() {
+    static void withdraw() {
         double moneyAmountWithdrawn;
 
         System.out.println("How much money do you want to collect?:");
@@ -111,7 +111,7 @@ public class Action {
     }
 
     // Describe the purpose and use case of each possible action
-    public static void help() {
+    static void help() {
         System.out.println("Here's a list of what each possible action means:");
         System.out.println("\tbuy: Choose between three different types of coffee to buy (cost varies). As long as I have the necessary items, I'll make it for you!");
         System.out.println("\tfill: Add amounts of resources to me to fill me back up.");

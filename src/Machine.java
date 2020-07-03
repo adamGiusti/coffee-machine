@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
-public class Machine {
+class Machine {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
     // Machine's resources with initial amounts
-    public static int mlWater = 800;
-    public static int mlMilk = 400;
-    public static int gramsCoffeeBeans = 100;
-    public static int numDisposableCups = 10;
-    public static double moneyAmount = 75;
+    static int mlWater = 800;
+    static int mlMilk = 400;
+    static int gramsCoffeeBeans = 100;
+    static int numDisposableCups = 10;
+    static double moneyAmount = 75;
 
     // Execution point of the machine
-    public static void start() {
+    static void start() {
         greet();
         interact();
     }
