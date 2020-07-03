@@ -111,6 +111,9 @@ class Action {
 
             System.out.println("$" + moneyFormat(moneyAmountWithdrawn) + " has been withdrawn.");
             System.out.println("I now have $" + moneyFormat(Machine.moneyAmount) + " left.");
+        } else {
+            System.out.println("Sorry, but I only have $" + moneyFormat(Machine.moneyAmount) + ".");
+            withdraw();
         }
     }
 
