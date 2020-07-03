@@ -101,10 +101,17 @@ class Action {
 
     // Take away a given amount of money from the machine
     static void withdraw() {
+        String response;
         double moneyAmountWithdrawn;
 
-        System.out.println("How much money do you want to collect?");
-        moneyAmountWithdrawn = SCANNER.nextDouble();
+        System.out.println("How much money do you want to collect (all - withdraw entire balance)?");
+        response = SCANNER.next().toLowerCase();
+
+        if (response.equals("all")) {
+            moneyAmountWithdrawn = Machine.moneyAmount;
+        } else {
+            moneyAmountWithdrawn = Double.parseDouble(response);
+        }
 
         if (Machine.moneyAmount >= moneyAmountWithdrawn) {
             Machine.moneyAmount -= moneyAmountWithdrawn;
